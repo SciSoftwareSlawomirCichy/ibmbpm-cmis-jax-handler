@@ -1,0 +1,150 @@
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>pl.scisoftware.bpm</groupId>
+	<artifactId>bpm-jax-ws</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<properties>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<bpm.version>8.5.6</bpm.version>
+		<websphere.version>8.5.5.13</websphere.version>
+		<junit.version>4.7</junit.version>
+	</properties>
+
+	<developers>
+		<developer>
+			<id>slawas</id>
+			<name>Sławomir Cichy</name>
+			<email>slawas@scisoftware.pl</email>
+			<roles>
+				<role>developer</role>
+				<role>manager</role>
+			</roles>
+			<timezone>+1</timezone>
+		</developer>
+	</developers>
+
+	<organization>	
+		<name>Sci Software Sławomir Cichy</name>
+	</organization>
+
+<!--
+	<scm>
+		<connection>scm:svn:https://dsiutil1.cn.in.pekao.com.pl/svn/bpm/trunk/eDyspozycje/pekao-bpm-jax-ws/</connection>
+	</scm>
+	<distributionManagement>
+		<repository>
+			<id>deployment</id>
+			<name>Internal Releases</name>
+			<url>http://dsiutil1:8081/nexus/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>deployment</id>
+			<name>Internal Releases</name>
+			<url>http://dsiutil1:8081/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+-->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.3</version>
+				<executions>
+					<execution>
+						<id>default-compile</id>
+						<phase>compile</phase>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+						<configuration>
+							<encoding>UTF-8</encoding>
+							<source>1.6</source>
+							<target>1.6</target>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+
+		<!-- WIM -->
+		<dependency>
+			<groupId>com.ibm.ws.runtime.wim</groupId>
+			<artifactId>core</artifactId>
+			<version>${websphere.version}</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/websphere/plugins/com.ibm.ws.runtime.wim.core.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>com.ibm.ws.runtime.wim</groupId>
+			<artifactId>base</artifactId>
+			<version>${websphere.version}</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/websphere/plugins/com.ibm.ws.runtime.wim.base.jar</systemPath>
+		</dependency>
+		<!-- //WIM -->
+
+		<!-- Klient HTTP -->
+		<dependency>
+			<groupId>com.ibm.jaxrs</groupId>
+			<artifactId>thinclient</artifactId>
+			<version>${websphere.version}</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/websphere/runtimes/com.ibm.jaxrs.thinclient_8.5.0.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>com.ibm.ws.prereq</groupId>
+			<artifactId>prereq-jaxrs</artifactId>
+			<version>${websphere.version}</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/websphere/plugins/com.ibm.ws.prereq.jaxrs.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>com.ibm.ws.security.openid20</groupId>
+			<artifactId>openid20-client</artifactId>
+			<version>${websphere.version}</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/websphere/plugins/com.ibm.ws.security.openid20.client.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>com.ibm.bpm.integration</groupId>
+			<artifactId>client-interfaces</artifactId>
+			<version>${websphere.version}</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/websphere/plugins/com.ibm.bpm.integration.client.interfaces.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>javax.j2ee</groupId>
+			<artifactId>j2ee</artifactId>
+			<version>${websphere.version}</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/websphere/lib/j2ee.jar</systemPath>
+		</dependency>		<!-- //Klient HTTP -->
+
+
+		<!-- https://mvnrepository.com/artifact/commonj.sdo/commonj.sdo -->
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>commonj.sdo</artifactId>
+			<version>2.1.1</version>
+		</dependency>
+
+		<!-- Do testów -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- //Do testów -->
+
+	</dependencies>
+</project>

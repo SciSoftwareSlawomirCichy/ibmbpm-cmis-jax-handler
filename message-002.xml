@@ -1,0 +1,8 @@
+<soapenv:Envelope
+	xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:ns="http://docs.oasis-open.org/ns/cmis/messaging/200908/">
+	<soapenv:Body>
+		<ns:getRepositories>
+		</ns:getRepositories>
+	</soapenv:Body>
+</soapenv:Envelope>
